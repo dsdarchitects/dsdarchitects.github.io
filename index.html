@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    background-color: #121212;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .construction-container {
+    text-align: center;
+  }
+
+  .construction-animation {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    animation: construction 4s linear infinite;
+    cursor: pointer;
+  }
+
+  .construction-animation svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @keyframes construction {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes building-rise {
+    0% { transform: translate(-50%, 0) scaleY(1); }
+    100% { transform: translate(-50%, -100%) scaleY(0); }
+  }
+</style>
+<title>Under Construction</title>
+</head>
+<body>
+  <div class="construction-container">
+    <h1>Under Construction</h1>
+    <div class="construction-animation">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="40" fill="gray" />
+      </svg>
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);">
+        <rect x="30" y="30" width="40" height="40" fill="gray" />
+      </svg>
+    </div>
+    <p>We're building something amazing!</p>
+  </div>
+  <script>
+    const crane = document.querySelector('.construction-animation');
+    const building = document.querySelector('.construction-animation svg:last-child');
+
+    crane.addEventListener('mouseover', () => {
+      building.style.animation = 'building-rise 2s forwards';
+    });
+
+    crane.addEventListener('mouseout', () => {
+      building.style.animation = '';
+    });
+  </script>
+</body>
+</html>
