@@ -959,6 +959,8 @@ body{
     left: 20px;
     bottom: 20px;
     color: white!important;
+	background: #25D366;
+	z-index: 1000;
 }
 
 /*=======================
